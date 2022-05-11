@@ -12,9 +12,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@/*": ["apps/sandboxes/src/app/*"],
+      "@/*": ["apps/website/src/app/*"],
       "@craftvalue/sandbox-react-common": [
         "libs/sandbox-react-common/src/index.ts"
+      ],
+      "@sandboxes/context-api/custom-context-provider": [
+        "apps/sandboxes/context-api/custom-context-provider/src/main.tsx"
       ]
     }
   },

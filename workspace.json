@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "sandbox-react-common": "libs/sandbox-react-common",
-    "sandboxes": "apps/sandboxes"
+    "sandboxes-context-api-custom-context-provider": "apps/sandboxes/context-api/custom-context-provider",
+    "website": "apps/website"
   }
 }

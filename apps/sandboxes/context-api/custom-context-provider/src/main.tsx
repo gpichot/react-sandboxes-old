@@ -10,13 +10,13 @@ const Dashboard = () => {
   return <Box name="dashboard">Dashboard</Box>;
 };
 
-const CounterContext = React.createContext<
-  | {
-      count: number;
-      increment: () => void;
-    }
-  | undefined
->(undefined);
+type CounterContextType = {
+  count: number;
+  increment: () => void;
+};
+const CounterContext = React.createContext<CounterContextType | undefined>(
+  undefined
+);
 
 function useCounterContext() {
   const context = React.useContext(CounterContext);

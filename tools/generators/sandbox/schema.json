@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "sandbox",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Sandbox name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the sandbox?",
+      "pattern": "^[a-zA-Z].*$"
+    },
+    "category": {
+      "type": "string",
+      "description": "Sandbox category",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What category would you like to use for the sandbox?",
+      "pattern": "^[a-zA-Z].*$"
+    }
+  },
+  "required": ["name"]
+}

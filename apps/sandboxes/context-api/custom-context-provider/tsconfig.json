@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "paths": {
+      "@craftvalue/sandbox-react-common": [
+        "../../libs/sandbox-react-common/src/index.ts"
+      ]
+    }
+  }
+}

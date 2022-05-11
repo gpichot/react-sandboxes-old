@@ -1,0 +1,82 @@
+{
+  "sourceRoot": "apps/sandboxes/context-api/custom-context-provider/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/sandboxes/context-api/custom-context-provider",
+        "index": "apps/sandboxes/context-api/custom-context-provider/src/index.html",
+        "baseHref": "/",
+        "main": "apps/sandboxes/context-api/custom-context-provider/src/main.tsx",
+        "polyfills": "apps/sandboxes/context-api/custom-context-provider/src/polyfills.ts",
+        "tsConfig": "apps/sandboxes/context-api/custom-context-provider/tsconfig.app.json",
+        "assets": [
+          "apps/sandboxes/context-api/custom-context-provider/src/favicon.ico",
+          "apps/sandboxes/context-api/custom-context-provider/src/assets"
+        ],
+        "styles": [
+          "apps/sandboxes/context-api/custom-context-provider/src/styles.scss"
+        ],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/sandboxes/context-api/custom-context-provider/src/environments/environment.ts",
+              "with": "apps/sandboxes/context-api/custom-context-provider/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "sandboxes-context-api-custom-context-provider:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "sandboxes-context-api-custom-context-provider:build:development"
+        },
+        "production": {
+          "buildTarget": "sandboxes-context-api-custom-context-provider:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/sandboxes/context-api/custom-context-provider/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

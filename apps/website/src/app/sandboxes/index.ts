@@ -1,4 +1,5 @@
 import { Sandbox, SandboxModule } from "./types";
+import * as FirstSandbox from "@sandboxes/context-api/custom-context-provider";
 export type SandboxSection = {
   category: string;
   sandboxes: Sandbox[];
@@ -11,7 +12,7 @@ export const Sandboxes: SandboxSection[] = [
       {
         id: "context-api:custom-content-provider",
         title: "Custom Context Provider",
-        component: () => import("./context-api/custom-context-provider"),
+        component: () => Promise.resolve(FirstSandbox),
       },
     ],
   },
