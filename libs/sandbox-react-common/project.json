@@ -1,0 +1,52 @@
+{
+  "sourceRoot": "libs/sandbox-react-common/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/sandbox-react-common",
+        "tsConfig": "libs/sandbox-react-common/tsconfig.lib.json",
+        "project": "libs/sandbox-react-common/package.json",
+        "entryFile": "libs/sandbox-react-common/src/index.ts",
+        "external": [
+          "react/jsx-runtime"
+        ],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/sandbox-react-common/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/sandbox-react-common/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/sandbox-react-common"
+      ],
+      "options": {
+        "jestConfig": "libs/sandbox-react-common/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

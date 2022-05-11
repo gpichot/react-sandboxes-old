@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "sandbox-react-common": "libs/sandbox-react-common",
+    "sandboxes": "apps/sandboxes"
+  }
+}
