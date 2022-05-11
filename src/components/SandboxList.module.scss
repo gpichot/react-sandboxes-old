@@ -1,0 +1,18 @@
+.sandboxList {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.sandboxItem {
+  padding: 3px 0;
+  button {
+    padding: 0;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      color: #f49676;
+    }
+  }
+}
