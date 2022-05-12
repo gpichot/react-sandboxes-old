@@ -25,10 +25,10 @@ export default async function (tree: Tree, schema: any) {
 
   // Delete unused files
   tree.delete(`${options.appProjectRoot}/jest.config.js`);
+  tree.delete(`${options.appProjectRoot}/src/app/`);
   tree.delete(`${options.appProjectRoot}/src/app/app.tsx`);
   tree.delete(`${options.appProjectRoot}/src/app/app.module.scss`);
   tree.delete(`${options.appProjectRoot}/src/app/nx-welcome.tsx`);
-  tree.delete(`${options.appProjectRoot}/src/app/`);
   tree.delete(`${options.appProjectRoot}/src/enviroments`);
   tree.delete(`${options.appProjectRoot}/src/favicon.ico`);
   tree.delete(`${options.appProjectRoot}/.babelrc`);
@@ -41,16 +41,14 @@ export default async function (tree: Tree, schema: any) {
   tree.delete(`${options.appProjectRoot}/tsconfig.json`);
   tree.delete(`${options.appProjectRoot}/tsconfig.app.json`);
   tree.delete(`${options.appProjectRoot}/.eslintrc.json`);
-  tree.rename(
-    `${options.appProjectRoot}/src/main.tsx`,
-    `${options.appProjectRoot}/src/index.tsx`
-  );
+  tree.delete(`${options.appProjectRoot}/src/main.tsx`);
 
   // Add package.json
   await addPackageJson(tree, options);
   await createMainFile(tree, options);
   await createBabelRc(tree, options);
   await createTsconfig(tree, options);
+  await createIndex(tree, options);
 }
 
 async function addPackageJson(tree: Tree, options: any) {
@@ -117,8 +115,28 @@ async function createTsconfig(tree: Tree, options: any) {
       "@craftvalue/sandbox-react-common": [
         "../../libs/sandbox-react-common/src/index.ts"
       ]
-    }
+   presentations-common }
   }
 }`
+  );
+}
+
+async function createIndex(tree: Tree, options: any) {
+  const filePath = `${options.appProjectRoot}/src/index.tsx`;
+  tree.write(
+    filePath,
+    `import { StrictMode } from "react";
+import * as ReactDOM from "react-dom/client";
+
+import { App } from "./main";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);`
   );
 }
