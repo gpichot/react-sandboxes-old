@@ -1,5 +1,12 @@
 import React from "react";
-import styles from "./Box.module.scss";
+import styled from "styled-components";
+
+const StyledBox = styled.div`
+  background-color: #a9adc1;
+  border: 1px solid gray;
+  margin: 4px;
+  text-align: left;
+`;
 
 export function useRenderCounter() {
   const ref = React.useRef<HTMLSpanElement>(null);
@@ -25,9 +32,9 @@ export default function Box({
 }: React.ComponentProps<"div"> & { name: string }) {
   const counter = useRenderCounter();
   return (
-    <div className={styles.box}>
+    <StyledBox>
       {counter} <strong>{name}</strong>
       <div style={{ padding: 5 }}>{children}</div>
-    </div>
+    </StyledBox>
   );
 }

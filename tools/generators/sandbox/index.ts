@@ -26,7 +26,6 @@ export default async function (tree: Tree, schema: any) {
   // Delete unused files
   tree.delete(`${options.appProjectRoot}/jest.config.js`);
   tree.delete(`${options.appProjectRoot}/src/app/`);
-  tree.delete(`${options.appProjectRoot}/src/app/app.tsx`);
   tree.delete(`${options.appProjectRoot}/src/app/app.module.scss`);
   tree.delete(`${options.appProjectRoot}/src/app/nx-welcome.tsx`);
   tree.delete(`${options.appProjectRoot}/src/enviroments`);
@@ -49,6 +48,8 @@ export default async function (tree: Tree, schema: any) {
   await createBabelRc(tree, options);
   await createTsconfig(tree, options);
   await createIndex(tree, options);
+
+  tree.delete(`${options.appProjectRoot}/src/app/app.tsx`);
 }
 
 async function addPackageJson(tree: Tree, options: any) {
@@ -57,7 +58,7 @@ async function addPackageJson(tree: Tree, options: any) {
     filePath,
     `{
   "dependencies": {
-    "@craftvalue/sandbox-react-common": "^0.0.1",
+    "@craftvalue/sandbox-react-common": "^0.0.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
